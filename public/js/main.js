@@ -20,7 +20,7 @@ mouse.down = false;
 
     // START DEMO
 
-    c.fillStyle = 'blue';
+    c.fillStyle = 'red';
     c.fillRect(0, 0, canvas.width, canvas.height);
 
     const partHandler = new PartHandler([]);
