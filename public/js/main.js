@@ -4,32 +4,26 @@
 const randint = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const rands = () => Math.random() < 0.5 ? -1 : 1;
 
+const canvas = document.querySelector('canvas');
+const mouse = {};
+mouse.x = 0;
+mouse.y = 0;
+mouse.down = false;
+
 (() => {
 
   // VARIABLES
 
-  const canvas = document.querySelector('canvas');
   const c = canvas.getContext('2d');
-  const mouse = {};
-  mouse.x = 0;
-  mouse.y = 0;
-  mouse.down = false;
 
   const demo = () => {
 
     // START DEMO
 
+    c.fillStyle = 'blue';
+    c.fillRect(0, 0, canvas.width, canvas.height);
+
     const partHandler = new PartHandler([]);
-    
-    for (let i = 0; i < 1000; i++) {
-      partHandler.add(new Part(
-        randint(0, canvas.width),
-        randint(0, canvas.height),
-        randint(1, 5),
-        Math.random() * Math.PI * 2,
-        1
-      ));
-    }
 
     // ANIMATION LOOP
 
@@ -41,7 +35,7 @@ const rands = () => Math.random() < 0.5 ? -1 : 1;
 
       // CLEAR
 
-      c.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      c.fillStyle = 'rgba(0, 0, 0, 1)';
       c.fillRect(0, 0, canvas.width, canvas.height);
 
       // DRAW
@@ -51,7 +45,7 @@ const rands = () => Math.random() < 0.5 ? -1 : 1;
       requestAnimationFrame(loop);
     };
     
-    requestAnimationFrame(loop);
+    // requestAnimationFrame(loop);
   };
 
   // EVENT HANDLERS
