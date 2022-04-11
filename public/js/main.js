@@ -1,18 +1,7 @@
 
-// GLOBAL
-
-const randint = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-const rands = () => Math.random() < 0.5 ? -1 : 1;
-
-const canvas = document.querySelector('canvas');
-const mouse = {};
-mouse.x = 0;
-mouse.y = 0;
-mouse.down = false;
-
 (() => {
 
-  // VARIABLES
+  // LOCAL VARIABLES
 
   const c = canvas.getContext('2d');
 
@@ -23,9 +12,13 @@ mouse.down = false;
     c.fillStyle = 'red';
     c.fillRect(0, 0, canvas.width, canvas.height);
 
+    c.fillStyle = 'white';
+    c.font = '40px monospace';
+    c.fillText('Everything works, start the loop lmao', 0, 40);
+
     const partHandler = new PartHandler([]);
 
-    // ANIMATION LOOP
+    // THE LOOP
 
     const loop = () => {
 
@@ -59,6 +52,14 @@ mouse.down = false;
   addEventListener('resize', () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
+  });
+
+  addEventListener('keydown', ({keyCode}) => {
+    keys[keyCode] = true;
+  });
+
+  addEventListener('keyup', ({keyCode}) => {
+    keys[keyCode] = false;
   });
 
   addEventListener('mousemove', ({x, y}) => {
