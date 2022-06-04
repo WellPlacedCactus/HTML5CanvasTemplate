@@ -7,15 +7,6 @@
 
   const demo = () => {
 
-    // START DEMO
-
-    c.fillStyle = 'red';
-    c.fillRect(0, 0, canvas.width, canvas.height);
-
-    c.fillStyle = 'white';
-    c.font = '40px monospace';
-    c.fillText('Everything works, start the loop lmao', 0, 40);
-
     const partHandler = new PartHandler([]);
 
     // THE LOOP
@@ -28,7 +19,7 @@
 
       // CLEAR
 
-      c.fillStyle = 'rgba(0, 0, 0, 1)';
+      c.fillStyle = `rgba(0, 0, 0, ${globalAlpha})`;
       c.fillRect(0, 0, canvas.width, canvas.height);
 
       // DRAW
@@ -38,7 +29,7 @@
       requestAnimationFrame(loop);
     };
     
-    // requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
   };
 
   // EVENT HANDLERS

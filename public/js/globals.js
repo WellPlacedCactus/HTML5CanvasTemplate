@@ -1,6 +1,7 @@
 
-// GLOBAL VARIABLES
+// INPUT
 
+const globalAlpha = 1;
 const canvas = document.querySelector('canvas');
 const keys = [];
 const mouse = {
@@ -9,7 +10,7 @@ const mouse = {
   down: false
 };
 
-// GLOBAL FUNCTIONS
+// UTIL
 
 const rands = () => Math.random() < 0.5 ? -1 : 1;
 const randint = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);

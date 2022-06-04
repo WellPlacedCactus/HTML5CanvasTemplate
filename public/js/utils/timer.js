@@ -1,14 +1,13 @@
 
 class Timer {
 
-  constructor(cd) {
-    this.cd = cd;
+  constructor() {
     this.t = 0;
   }
 
-  tick() {
+  tick(cd) {
     this.t += 1;
-    if (this.t > this.cd) {
+    if (this.t > cd) {
       this.t = 0;
       return true;
     } else {
